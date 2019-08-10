@@ -11,6 +11,14 @@
       <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="bootstrap" Version="4.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\index.cshtml" />
+  </ItemGroup>
 </Project>
