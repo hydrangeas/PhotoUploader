@@ -29,14 +29,13 @@ namespace CVPTest
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "Root",
+                    "",
+                    defaults: new { controller = "Home", action = "Index" });
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=Index}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
         }
     }
 }

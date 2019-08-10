@@ -8,17 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CVPTest.Controllers
 {
-    public class IndexController : Controller
+    public class HomeController : Controller
     {
         // GET: /<controller>/
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public string Index()
+        public IActionResult Index()
         {
-            return "hello";
+            return View();
         }
     }
 }
