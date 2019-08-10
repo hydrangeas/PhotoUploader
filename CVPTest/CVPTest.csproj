@@ -18,6 +18,7 @@
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\index.cshtml" />
