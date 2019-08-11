@@ -1,7 +1,29 @@
-﻿@{
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Index";
 }
+
 <h2>Index</h2>
 
 <p>Hello from our View Template!</p>
+
+<div class="row">
+    <section>
+        <form method="post" enctype="multipart/form-data"
+              asp-controller="UploadFiles" asp-action="Upload">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <input type="file" name="files" multiple />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Upload" />
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
