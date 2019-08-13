@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace CVPTest.Model
+namespace CVPTest.Models
 {
     public class JobDatabase : DbContext
     {
