@@ -81,7 +81,7 @@ namespace CVPTest.Controllers
                 }
             }
 
-            return Ok(new { count = files.Count, size, filePath });
+            return RedirectToAction("Index", "Home", new { p = 1 });
         }
 
         /// <summary>
