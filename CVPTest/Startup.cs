@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Linq;
 using CVPTest.Model;
 using Microsoft.AspNetCore.Builder;
@@ -43,7 +42,7 @@ namespace CVPTest
                                                  .Select(x => x.Split('='))
                                                  .ToDictionary(x => x[0], x => x[1]);
                 connectionString = $"server=127.0.0.1;userid=azure;password={dictionary["Password"]};database=localdb;Port={dictionary["Data Source"].Split(':')[1]}";
-                options.UseMySQL(connectionString);
+                options.UseMySql(connectionString);
 #endif
             });
 
