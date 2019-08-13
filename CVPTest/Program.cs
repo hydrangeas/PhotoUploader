@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using CVPTest.Model;
+using CVPTest.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
