@@ -65,7 +65,7 @@ namespace CVPTest.Controllers
                             await AddAsync(new Job
                             {
                                 LogicalName = file.FileName,
-                                PhysicalName = blockBlobName,
+                                PhysicalName = blockBlobName.ToString(),
                                 PhysicalPath = blockBlob.Uri.AbsoluteUri
                             });
                         }

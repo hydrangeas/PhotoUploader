@@ -70,7 +70,7 @@ namespace CVPTest.Model
         /// <summary>
         /// Blob保存時のファイル名
         /// </summary>
-        public Guid PhysicalName { get; set; }
+        public string PhysicalName { get; set; }
         /// <summary>
         /// BlobへのURL
         /// </summary>
