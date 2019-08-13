@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Linq;
 using CVPTest.Model;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +47,7 @@ namespace CVPTest
 #endif
             });
 
+            services.AddApplicationInsightsTelemetry(config);
             services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
             services.AddMvc();
         }

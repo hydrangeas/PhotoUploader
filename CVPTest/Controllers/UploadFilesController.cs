@@ -49,8 +49,8 @@ namespace CVPTest.Controllers
                 {
                     using (var stream = new MemoryStream())
                     {
-                        //try
-                        //{
+                        try
+                        {
                             // TODO: streamを経由せずにBlobへコピーする方法はないか確認
                             // (メインメモリが少ないのでボトルネックになるかも）
                             await file.CopyToAsync(stream);
@@ -68,14 +68,15 @@ namespace CVPTest.Controllers
                                 PhysicalName = blockBlobName,
                                 PhysicalPath = blockBlob.Uri.AbsoluteUri
                             });
-                        //}
-                        //catch(Exception e)
-                        //{
-                        //    Console.WriteLine(e);
-                        //    // TODO: エラーについて対策する
-                        //    // メモリ確保エラー
-                        //    // ネットワークエラー
-                        //}
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            throw;
+                            // TODO: エラーについて対策する
+                            // メモリ確保エラー
+                            // ネットワークエラー
+                        }
                     }
                 }
             }
@@ -93,14 +94,16 @@ namespace CVPTest.Controllers
                 return;
 
             jobDatabase.Jobs.Add(job);
-            //try
-            //{
+            try
+            {
                 await jobDatabase.SaveChangesAsync();
-            //}
-            //catch
-            //{
-                // TODO: エラー復帰方法を考える
-            //}
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+                //TODO: エラー復帰方法を考える
+            }
         }
         #endregion
     }
