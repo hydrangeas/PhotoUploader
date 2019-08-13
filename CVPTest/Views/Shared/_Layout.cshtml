@@ -10,61 +10,78 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-page="/Index" class="navbar-brand">WebApplication1</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Fixed navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
                 </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <h1 class="mt-5">Sticky footer with fixed navbar</h1>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - WebApplication1</p>
-        </footer>
-    </div>
+    </main>
 
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/popper/dist/umd/popper.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                asp-fallback-src="~/lib/popper/dist/umd/popper.min.js"
+                asp-fallback-test="window.Popper"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
