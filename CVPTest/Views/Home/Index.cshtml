@@ -1,4 +1,5 @@
-﻿@{
+﻿@model CVPTest.Models.IndexViewModel
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -10,4 +11,14 @@
 <div id="listOfJobs">
     @Html.Partial(U.PartialViews.ListOfJobs)
 </div>
+
+<script type="text/javascript">
+    function d(id) {
+        var url = "/home/d/";
+        $.post(url, {id: id})
+        .done(function(response){
+             $("#listOfJobs").html(response);
+        });
+    }
+</script>
 

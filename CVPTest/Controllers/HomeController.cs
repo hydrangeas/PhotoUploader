@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using CVPTest.Common;
 using CVPTest.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CVPTest.Controllers
 {
@@ -41,6 +42,41 @@ namespace CVPTest.Controllers
                                   .Take(pageSize)
                                   .ToList();
             return jobs;
+        }
+
+        [AjaxOnly]
+        [RequireReferrer("/home/index", "/")]
+        [HttpPost]
+        [ActionName("d")]
+        public async Task<IActionResult> d(int id)
+        {
+            await DeleteJobAsync(id);
+
+            var model = GetJobList(1);
+            var viewModel = new IndexViewModel(model);
+            return PartialView(U.PartialViews.ListOfJobs, viewModel);
+        }
+
+        public async Task DeleteJobAsync(int id)
+        {
+            var job = jobDatabase.Jobs
+                                 .Where(j => j.Id == id)
+                                 .FirstOrDefault();
+            if (job == null)
+                return;
+
+            jobDatabase.Jobs.Remove(job);
+
+            try
+            {
+                await jobDatabase.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+                //TODO: エラー復帰方法を考える
+            }
         }
     }
 }
