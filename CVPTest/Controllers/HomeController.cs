@@ -19,6 +19,12 @@ namespace CVPTest.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var pageConfigure = new PageConfigure()
+            {
+                IsHome = true
+            };
+            ViewData["PageConfigure"] = pageConfigure;
+
             var model = GetJobList(1);
             var viewModel = new IndexViewModel(model);
             return View(viewModel);
