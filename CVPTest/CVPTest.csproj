@@ -35,6 +35,7 @@
     <Folder Include="Common\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\index.cshtml" />
