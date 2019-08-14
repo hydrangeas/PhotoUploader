@@ -13,12 +13,12 @@ using Microsoft.WindowsAzure.Storage;
 
 namespace CVPTest.Controllers
 {
-    public class UploadFilesController : Controller
+    public class StorageController : Controller
     {
         private readonly IConfiguration config;
         private readonly JobDatabase jobDatabase;
 
-        public UploadFilesController(IConfiguration _config, JobDatabase _jobDatabase)
+        public StorageController(IConfiguration _config, JobDatabase _jobDatabase)
         {
             config = _config;
             jobDatabase = _jobDatabase;
