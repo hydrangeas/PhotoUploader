@@ -24,7 +24,7 @@ namespace CVPTest.Controllers
             jobDatabase = _jobDatabase;
         }
 
-        #region snippet1
+        #region upload
         [HttpPost("UploadFiles")]
         public async Task<IActionResult> Upload(List<IFormFile> files)
         {
