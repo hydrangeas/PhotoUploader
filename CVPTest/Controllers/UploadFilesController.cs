@@ -81,7 +81,7 @@ namespace CVPTest.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Home", new { p = 1 });
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
